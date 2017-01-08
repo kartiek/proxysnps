@@ -104,7 +104,7 @@ get_vcf_local <- function(chrom, start, end, pop = NA, fDir) {
   }
   
   # These are variants filtered by Brian Browning, the developer of BEAGLE.
-  data_url = paste0(fDir,chrom, ".1kg.phase3.v5a.vcf.gz")
+  data_url = paste0(fDir,'chr',chrom, ".1kg.phase3.v5a.vcf.gz")
   
   # Get the data from vcf file as a data frame
   vcf <- tabix.read.table(data_url,paste0(chrom,':',start,'-',end),col.names = TRUE, stringsAsFactors = FALSE)
