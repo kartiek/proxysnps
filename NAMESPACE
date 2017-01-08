@@ -3,3 +3,5 @@
 export(compute_ld)
 export(get_proxies)
 export(get_vcf)
+export(get_vcf_local)
+importFrom(seqminer,tabix.read.table)

@@ -5,7 +5,7 @@
 \title{Get proxy SNPs for a SNP at a given genomic position.}
 \usage{
 get_proxies(chrom = NA, pos = NA, query = NA, window_size = 1e+05,
-  pop = NA)
+  pop = NA, fDir = NA)
 }
 \arguments{
 \item{chrom}{a chromosome name (1-22,X) without "chr"}
@@ -51,7 +51,7 @@ Find more details here:
 \url{http://www.1000genomes.org/faq/which-populations-are-part-your-study}
 }
 \examples{
-d <- get_proxies(chrom = "12", pos = 583090, window_size = 1e5, pop = "AFR")
+d <- get_proxies(chrom = "12", pos = 583090, window_size = 1e5, pop = "AFR",fDir = NA)
 head(d)
  
 }

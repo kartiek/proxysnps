@@ -36,17 +36,18 @@
 #'   }
 #' 
 #' @examples
-#' d <- get_proxies(chrom = "12", pos = 583090, window_size = 1e5, pop = "AFR")
+#' d <- get_proxies(chrom = "12", pos = 583090, window_size = 1e5, pop = "AFR",fDir = NA)
 #' head(d)
 #'  
 #' @export
 get_proxies <- function(
-  chrom = NA, pos = NA, query = NA, window_size = 1e5, pop = NA) {
+  chrom = NA, pos = NA, query = NA, window_size = 1e5, pop = NA, fDir = NA) {
   
 #   chrom = "12"
 #   pos = 583090
 #   window_size = 1e5
 #   pop = "AFR"
+#   fDir = local directory
   
   # Try to get the position from myvariant.info if there's a query.
   if (is.na(chrom) && is.na(pos) && !is.na(query)) {
@@ -60,11 +61,12 @@ get_proxies <- function(
   }
   
   # Get VCF data for this genomic region.
-  vcf <- get_vcf(
+  vcf <- get_vcf_local(
     chrom = chrom, 
     start = floor(pos - window_size / 2),
     end =  floor(pos + window_size / 2),
-    pop = pop)
+    pop = pop,
+    fDir = fDir)
   
   # Separate the metadata from the genotypes.
   meta <- vcf$meta
